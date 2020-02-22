@@ -3,7 +3,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { BdayShellComponent } from './components/bday-shell/bday-shell.component';
 import { BdayFormComponent } from './containers/bday-form/bday-form.component';
 
-const bdayRoutes: Routes = [];
+const bdayRoutes: Routes = [{ path: "", component: BdayShellComponent }];
 
 @NgModule({
   imports: [
@@ -13,4 +13,4 @@ const bdayRoutes: Routes = [];
   BdayShellComponent,
   BdayFormComponent]
 })
-export class ProductModule {}
+export class BdayModule {}
