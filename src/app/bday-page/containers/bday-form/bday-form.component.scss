@@ -1,0 +1,34 @@
+.form-container {
+    height: 400px;
+    width: 400px;
+    border: solid 1px lightgrey;
+    padding: 24px;
+    display: flex;
+
+    .bday-form {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+
+        &__header {
+            font-size: 2em;
+        }
+
+        &__body {
+
+            input {
+                height: 42px;
+                width: 200px;
+            }         
+        }
+
+        &__footer {
+            button {
+                margin: 4px;
+            }
+        }
+    }
+}
