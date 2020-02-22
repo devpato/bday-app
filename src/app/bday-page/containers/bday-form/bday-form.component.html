@@ -1,14 +1,14 @@
 <div class="form-container">
     <form class="bday-form">
         <div class="bday-form__header">
-            <span class="bday-form__header__question">{{questions[0]}}*</span>
+            <span class="bday-form__header__question">{{question.question}}</span>
         </div>
         <div class="bday-form__body">
-            <input placeholder="Enter your answer" class="bday-form__body__input"/>
+            <input class="bday-form__body__input" value="{{question.answer}}"/>
         </div>
         <div class="bday-form__footer">
-           <button>prev</button>
-           <button>next</button>
+           <button type="button" (click)="prev()">prev</button>
+           <button type="button" (click)="next()">next</button>
         </div>    
     </form>
 </div>
