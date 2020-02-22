@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { BdayShellComponent } from './components/bday-shell/bday-shell.component';
+import { BdayFormComponent } from './containers/bday-form/bday-form.component';
 
 const bdayRoutes: Routes = [];
 
@@ -9,6 +10,7 @@ const bdayRoutes: Routes = [];
     RouterModule.forChild(bdayRoutes),
   ],
   declarations: [
-  BdayShellComponent]
+  BdayShellComponent,
+  BdayFormComponent]
 })
 export class ProductModule {}
