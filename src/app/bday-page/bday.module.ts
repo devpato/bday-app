@@ -6,6 +6,9 @@ import { CommonModule } from '@angular/common';
 import { StoreModule } from "@ngrx/store";
 import { reducer } from './state/bday.reducer';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from "@angular/common/http";
+import { EffectsModule } from "@ngrx/effects";
+import { BdayEffects } from './state/bday.effect';
 
 const bdayRoutes: Routes = [{ path: "", component: BdayShellComponent }];
 
@@ -13,12 +16,14 @@ const bdayRoutes: Routes = [{ path: "", component: BdayShellComponent }];
   imports: [
     CommonModule,
     RouterModule.forChild(bdayRoutes),
-    StoreModule.forFeature("bday", reducer),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    StoreModule.forFeature("bday", reducer),
+    EffectsModule.forFeature([BdayEffects])
   ],
   declarations: [
-  BdayShellComponent,
-  BdayFormComponent]
+    BdayShellComponent,
+    BdayFormComponent],
 })
-export class BdayModule {}
+export class BdayModule { }
