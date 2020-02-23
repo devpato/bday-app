@@ -1,0 +1,28 @@
+{
+    "questions": [
+        {
+            "id": 0,
+            "question": "What is your name?",
+            "answer": "",
+            "type": "name"
+        },
+        {
+            "id": 1,
+            "question": "What is your birth month?",
+            "answer": "",
+            "type": "birthMonth"
+        },
+        {
+            "id": 2,
+            "question": "What day in were you born?",
+            "answer": "",
+            "type": "birthDay"
+        },
+        {
+            "id": 3,
+            "question": "What's your email?",
+            "answer": "",
+            "type": "email"
+        }
+    ]
+}
