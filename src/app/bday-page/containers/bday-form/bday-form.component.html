@@ -1,5 +1,5 @@
 <div class="form-container">
-    <form class="bday-form" [formGroup]="questionForm">
+    <form class="bday-form" [formGroup]="questionForm" *ngIf="question && questions">
         <div class="bday-form__header">
             <span class="bday-form__header__question">{{question.question}}</span>
         </div>

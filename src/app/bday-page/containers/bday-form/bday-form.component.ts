@@ -61,7 +61,7 @@ export class BdayFormComponent implements OnInit {
   ngOnChanges(changes: SimpleChanges) {
     if (this.questionForm !== undefined && changes.question !== undefined) {
       this.question = changes.question.currentValue;
-      this.questionForm.patchValue({ answer: this.question.answer })
+      this.questionForm.patchValue({ answer: this.question?.answer })
     }
   }
 }
