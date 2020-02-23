@@ -30,7 +30,7 @@ export class BdayFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.questionForm = this.fb.group({
-      answer: ["", Validators.required]
+      answer: ['', Validators.required]
     });
   }
 
