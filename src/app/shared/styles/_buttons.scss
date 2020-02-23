@@ -1,0 +1,32 @@
+@import './variables';
+.button {
+    height: 40px;
+    padding: 4px 12px;
+    font-size: 1em;
+    color: $white;
+    min-width:100px;
+    border-radius: 50px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+
+    &--prev {
+        background-color: $prev;
+    }
+
+    &--next {
+        background-color: $next;
+    }
+
+    &--new {
+        background-color: $new;
+    }
+
+    &--done {
+        background-color: $done;
+    }
+
+    &--dis {
+        background-color: $dis;
+    }
+}
