@@ -1,12 +1,6 @@
 import { Question } from '../models/question.model';
 import { User } from 'src/app/shared/models/user.model';
 import { BdayActions, BdayActionTypes, FailLoadQuestions } from "./bday.actions";
-import { Bday } from 'src/app/shared/models/bday.model';
-
-const defaultUser = {
-  userName: '',
-  bdays: []
-}
 
 export interface BdayState {
   user: User
@@ -16,7 +10,10 @@ export interface BdayState {
 }
 
 const initialState: BdayState = {
-  user: defaultUser,
+  user: {
+    userName: '',
+    bdays: []
+  },
   questions: [],
   error: "",
   currentQuestion: null
@@ -72,6 +69,16 @@ export function reducer(state = initialState, action: BdayActions) {
         },
         error: ""
       }
+    }
+    case BdayActionTypes.ClearBdayData: {
+      return {
+        ...state,
+        user: {
+          userName: '',
+          bdays: []
+        },
+        currentQuestion: null
+      };
     }
 
     default:

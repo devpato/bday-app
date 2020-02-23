@@ -25,4 +25,23 @@ export class BdayEffects {
             )
         )
     );
+
+    @Effect()
+    resetNewBday$ = this.actions$.pipe(
+        ofType(bdayActions.BdayActionTypes.ResetNewBday),
+        mergeMap((action: bdayActions.ResetNewBday) => [
+            new bdayActions.AddNewBay(),
+            new bdayActions.LoadQuestions()
+        ])
+    );
+
+    @Effect()
+    clearBdayForm$ = this.actions$.pipe(
+        ofType(bdayActions.BdayActionTypes.ClearBdayFrom),
+        mergeMap((action: bdayActions.ClearBdayFrom) => [
+            new bdayActions.AddNewBay(),
+            new bdayActions.LoadQuestions(),
+            new bdayActions.ClearBdayData()
+        ])
+    );
 }

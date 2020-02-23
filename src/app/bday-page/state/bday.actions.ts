@@ -9,6 +9,9 @@ export enum BdayActionTypes {
   LoadCurrentQuestion = "[Bday] Load Success",
   SaveQuestion = '[Bday] Save Question',
   AddNewBday = '[Bday] Add New Bday',
+  ResetNewBday = '[Bday] Reset form for new bday',
+  ClearBdayFrom = '[Bday] Clear entire form',
+  ClearBdayData = '[Bday] Clear entire data'
 }
 
 export class LoadQuestions implements Action {
@@ -49,6 +52,19 @@ export class AddNewBay implements Action {
   readonly type = BdayActionTypes.AddNewBday;
 }
 
+export class ResetNewBday implements Action {
+  readonly type = BdayActionTypes.ResetNewBday;
+}
+
+export class ClearBdayFrom implements Action {
+  readonly type = BdayActionTypes.ClearBdayFrom;
+}
+
+export class ClearBdayData implements Action {
+  readonly type = BdayActionTypes.ClearBdayData;
+}
+
+
 
 export type BdayActions =
   | LoadQuestions
@@ -57,4 +73,7 @@ export type BdayActions =
   | SetCurrentQuestion
   | LoadCurrentQuestion
   | SaveQuestion
-  | AddNewBay;
+  | AddNewBay
+  | ResetNewBday
+  | ClearBdayFrom
+  | ClearBdayData;
