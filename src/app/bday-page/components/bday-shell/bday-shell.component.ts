@@ -4,12 +4,12 @@ import { Question } from '../../models/question.model'
 import { Store, select } from "@ngrx/store";
 import * as fromProduct from "../../state";
 import * as bdayActions from "../../state/bday.actions";
+import { BdayService } from '../../bday.service';
 
 @Component({
   selector: 'app-bday-shell',
   templateUrl: './bday-shell.component.html',
   styleUrls: ['./bday-shell.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BdayShellComponent implements OnInit {
   question$: Observable<Question>;
@@ -17,11 +17,12 @@ export class BdayShellComponent implements OnInit {
   setQuestion: Question;
 
 
-  constructor(private store: Store<fromProduct.State>) { }
+  constructor(private store: Store<fromProduct.State>, private bdayService: BdayService) { }
 
   ngOnInit(): void {
-    this.question$ = this.store.pipe(select(fromProduct.getCurrentQuestion));
+    this.store.dispatch(new bdayActions.LoadQuestions);
     this.questions$ = this.store.pipe(select(fromProduct.getQuestions));
+    this.question$ = this.store.pipe(select(fromProduct.getCurrentQuestion));
   }
 
   setCurrentQuestion(question: Question): void {
@@ -33,6 +34,7 @@ export class BdayShellComponent implements OnInit {
   }
 
   addNewBday(): void {
-    this.store.dispatch(new bdayActions.AddNewBay())
+    this.store.dispatch(new bdayActions.AddNewBay());
+    this.store.dispatch(new bdayActions.LoadQuestions);
   }
 }
