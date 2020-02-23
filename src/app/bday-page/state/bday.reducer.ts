@@ -1,61 +1,7 @@
 import { Question } from '../models/question.model';
 import { User } from 'src/app/shared/models/user.model';
-import { BdayActions, BdayActionTypes } from "./bday.actions";
+import { BdayActions, BdayActionTypes, FailLoadQuestions } from "./bday.actions";
 import { Bday } from 'src/app/shared/models/bday.model';
-
-const questionsArray = [
-  {
-    id: 0,
-    question: `What is your name?`,
-    answer: '',
-    type: "name"
-  },
-  {
-    id: 1,
-    question: `What is your birth month?`,
-    answer: '',
-    type: "birthMonth"
-  },
-  {
-    id: 2,
-    question: `What day in were you born?`,
-    answer: '',
-    type: "birthDay"
-  },
-  {
-    id: 3,
-    question: `What's your email?`,
-    answer: '',
-    type: 'email'
-  }
-]
-
-const questionsArray1 = [
-  {
-    id: 0,
-    question: `What is your name?`,
-    answer: '',
-    type: "name"
-  },
-  {
-    id: 1,
-    question: `What is your birth month?`,
-    answer: '',
-    type: "month"
-  },
-  {
-    id: 2,
-    question: `What day in were you born?`,
-    answer: '',
-    type: "day"
-  },
-  {
-    id: 3,
-    question: `What's your email?`,
-    answer: '',
-    type: 'email'
-  }
-]
 
 const defaultUser = {
   userName: '',
@@ -71,14 +17,30 @@ export interface BdayState {
 
 const initialState: BdayState = {
   user: defaultUser,
-  questions: [...questionsArray],
+  questions: [],
   error: "",
-  currentQuestion: questionsArray[0]
+  currentQuestion: null
 };
 
 export function reducer(state = initialState, action: BdayActions) {
 
   switch (action.type) {
+
+    case BdayActionTypes.SuccessLoadQuestions: {
+      return {
+        ...state,
+        questions: action.payload['questions'],
+        currentQuestion: action.payload['questions'][0],
+        error: ""
+      };
+    }
+
+    case BdayActionTypes.FailLoadQuestions: {
+      return {
+        ...state,
+        error: action.payload
+      };
+    }
 
     case BdayActionTypes.SetCurrentQuestion: {
       return {
@@ -98,7 +60,7 @@ export function reducer(state = initialState, action: BdayActions) {
 
     case BdayActionTypes.AddNewBday: {
 
-      let bday = questionsArray.reduce((ac, { type, answer }) => {
+      let bday = state.questions.reduce((ac, { type, answer }) => {
         ac[type] = answer;
         return ac;
       }, {});
