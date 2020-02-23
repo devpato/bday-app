@@ -1,7 +1,7 @@
 import { Bday } from './bday.model';
 
-export  interface User{
+export interface User {
     id: number
     userName: string;
-    additionalBdays? : Bday[];
+    bdays?: Bday[];
 }
