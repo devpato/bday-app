@@ -1,27 +1,28 @@
 <div class="form-container">
-    <form class="bday-form" [formGroup]="questionForm" *ngIf="question && questions">
+    <form class="bday-form" [formGroup]="questionForm" *ngIf="question">
         <div class="bday-form__header">
             <span class="bday-form__header__question">{{question.question}}</span>
         </div>
         <div class="bday-form__body">
-            <input class="bday-form__body__input" formControlName="answer"
-                type="{{question.type==='birthDay' ? 'number': 'text'}}" />
+            <input class="bday-form__body__input" formControlName="answer" *ngIf="question.type !== 'newBday'" />
         </div>
         <div class="bday-form__footer">
-            <button type="button" class="button button--prev" (click)="prev()" *ngIf="question.id > 0">prev</button>
-
-
-            <button type="button" class="button button--{{questionForm.valid ? 'next': 'dis'}}" (click)="next()"
-                *ngIf="question.id < questions.length-1" [disabled]="!questionForm.valid">next</button>
-
-
-            <button type="button" class="button button--{{questionForm.valid ? 'new': 'dis'}}" (click)="onAddNewBday()"
-                *ngIf="question.id === questions.length-1" [disabled]="!questionForm.valid">Add
-                New
-                bday</button>
-
-            <button type="button" class="button button--{{questionForm.valid ? 'done': 'dis'}}" (click)="onDone()"
-                *ngIf="question.id === questions.length-1" [disabled]="!questionForm.valid">Done</button>
+            <ng-container *ngIf="question.type !== 'newBday'; else questionButtons">
+                <button type="button" class="button button--prev" (click)="prev()" *ngIf="question.id > 0">prev</button>
+                <button type="button" class="button button--{{questionForm.valid ? 'next': 'dis'}}" (click)="next()"
+                    *ngIf="question.id < questions.length-1" [disabled]="!questionForm.valid">next</button>
+                <button type="button" class="button button--{{questionForm.valid ? 'new': 'dis'}}"
+                    (click)="onAddNewBday()" *ngIf="question.id === questions.length-1"
+                    [disabled]="!questionForm.valid">Add
+                    New
+                    bday</button>
+                <button type="button" class="button button--{{questionForm.valid ? 'done': 'dis'}}" (click)="onDone()"
+                    *ngIf="question.id === questions.length-1" [disabled]="!questionForm.valid">Done</button>
+            </ng-container>
+            <ng-template #questionButtons>
+                <button type="button" class="button button--prev" (click)="onNewBday(false)">No</button>
+                <button type="button" class="button button--new" (click)="onNewBday(true)">Yes</button>
+            </ng-template>
         </div>
     </form>
 </div>
