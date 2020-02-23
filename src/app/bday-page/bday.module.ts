@@ -5,6 +5,7 @@ import { BdayFormComponent } from './containers/bday-form/bday-form.component';
 import { CommonModule } from '@angular/common';
 import { StoreModule } from "@ngrx/store";
 import { reducer } from './state/bday.reducer';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const bdayRoutes: Routes = [{ path: "", component: BdayShellComponent }];
 
@@ -12,7 +13,9 @@ const bdayRoutes: Routes = [{ path: "", component: BdayShellComponent }];
   imports: [
     CommonModule,
     RouterModule.forChild(bdayRoutes),
-    StoreModule.forFeature("bday", reducer)
+    StoreModule.forFeature("bday", reducer),
+    FormsModule,
+    ReactiveFormsModule
   ],
   declarations: [
   BdayShellComponent,
