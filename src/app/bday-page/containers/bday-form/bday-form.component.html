@@ -13,6 +13,7 @@
             <button type="button" (click)="next()" *ngIf="question.id < questions.length-1">next</button>
             <button type="button" (click)="onAddNewBday()" *ngIf="question.id === questions.length-1">Add new
                 bday</button>
+            <button type="button" (click)="onDone()" *ngIf="question.id === questions.length-1">Done</button>
         </div>
     </form>
 </div>

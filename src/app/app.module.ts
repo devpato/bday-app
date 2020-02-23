@@ -9,8 +9,6 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { HttpClientModule } from "@angular/common/http";
 import { EffectsModule } from "@ngrx/effects";
 
-
-
 @NgModule({
   declarations: [
     AppComponent

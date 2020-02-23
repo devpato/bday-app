@@ -20,6 +20,8 @@ export class BdayFormComponent implements OnInit {
   @Output() setQuestion = new EventEmitter<Question>();
   @Output() savedQuestion = new EventEmitter<Question>();
   @Output() addNewBday = new EventEmitter();
+  @Output() done = new EventEmitter();
+
   newID: number
   questionForm: FormGroup;
   tempQuestion: Question;
@@ -56,6 +58,11 @@ export class BdayFormComponent implements OnInit {
   onAddNewBday(): void {
     this.saveAnswer();
     this.addNewBday.emit();
+  }
+
+  onDone() {
+    this.saveAnswer();
+    this.done.emit();
   }
 
   ngOnChanges(changes: SimpleChanges) {

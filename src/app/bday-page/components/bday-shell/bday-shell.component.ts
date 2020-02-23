@@ -34,7 +34,10 @@ export class BdayShellComponent implements OnInit {
   }
 
   addNewBday(): void {
-    this.store.dispatch(new bdayActions.AddNewBay());
-    this.store.dispatch(new bdayActions.LoadQuestions);
+    this.store.dispatch(new bdayActions.ResetNewBday())
+  }
+
+  onDone(): void {
+    this.store.dispatch(new bdayActions.ClearBdayFrom())
   }
 }
