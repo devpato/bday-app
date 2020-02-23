@@ -1,5 +1,4 @@
-export  interface Bday {
-    id: number,
+export interface Bday {
     name: string;
     birthMonth: string;
     birthDay: string;
