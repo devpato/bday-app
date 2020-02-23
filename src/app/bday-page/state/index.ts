@@ -11,11 +11,13 @@ export interface State extends fromRoot.State {
 const getBdayFeatureState = createFeatureSelector<BdayState>("bday");
 
 export const getQuestions = createSelector(
-    getBdayFeatureState,
-  state => state.questions //proyector function
+  getBdayFeatureState,
+  state => state.questions
 );
 
 export const getCurrentQuestion = createSelector(
   getBdayFeatureState,
-state => state.currentQuestion //proyector function
+  state => {
+    return state.currentQuestion
+  }
 );
