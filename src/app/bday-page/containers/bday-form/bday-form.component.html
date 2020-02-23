@@ -1,14 +1,18 @@
 <div class="form-container">
-    <form class="bday-form">
+    <form class="bday-form" [formGroup]="questionForm">
         <div class="bday-form__header">
             <span class="bday-form__header__question">{{question.question}}</span>
         </div>
         <div class="bday-form__body">
-            <input class="bday-form__body__input" value="{{question.answer}}"/>
+            {{question.answer}}
+            <br />
+            <input class="bday-form__body__input" formControlName="answer" />
         </div>
         <div class="bday-form__footer">
-           <button type="button" (click)="prev()">prev</button>
-           <button type="button" (click)="next()">next</button>
-        </div>    
+            <button type="button" (click)="prev()" *ngIf="question.id > 0">prev</button>
+            <button type="button" (click)="next()" *ngIf="question.id < questions.length-1">next</button>
+            <button type="button" (click)="onAddNewBday()" *ngIf="question.id === questions.length-1">Add new
+                bday</button>
+        </div>
     </form>
 </div>

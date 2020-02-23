@@ -1,3 +1,5 @@
 <div class="bday-shell-container">
-    <app-bday-form [question] = "question$ | async" [questions] = "questions$ | async" (setQuestion)="setCurrentQuestion($event)"></app-bday-form>
+    <app-bday-form [question]="question$ | async" [questions]="questions$ | async"
+        (setQuestion)="setCurrentQuestion($event)" (savedQuestion)="saveQuestion($event)" (addNewBday)="addNewBday()">
+    </app-bday-form>
 </div>

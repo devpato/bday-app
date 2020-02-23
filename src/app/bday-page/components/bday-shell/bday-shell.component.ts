@@ -27,4 +27,12 @@ export class BdayShellComponent implements OnInit {
   setCurrentQuestion(question: Question): void {
     this.store.dispatch(new bdayActions.SetCurrentQuestion(question));
   }
+
+  saveQuestion(question: Question): void {
+    this.store.dispatch(new bdayActions.SaveQuestion(question));
+  }
+
+  addNewBday(): void {
+    this.store.dispatch(new bdayActions.AddNewBay())
+  }
 }
