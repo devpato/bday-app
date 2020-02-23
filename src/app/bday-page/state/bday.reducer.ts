@@ -5,8 +5,9 @@ import { BdayActions, BdayActionTypes, FailLoadQuestions } from "./bday.actions"
 export interface BdayState {
   user: User
   questions: Question[];
+  currentQuestion: Question | null;
+  answerNew: boolean;
   error: string;
-  currentQuestion: Question | null
 }
 
 const initialState: BdayState = {
@@ -15,8 +16,9 @@ const initialState: BdayState = {
     bdays: []
   },
   questions: [],
+  currentQuestion: null,
+  answerNew: false,
   error: "",
-  currentQuestion: null
 };
 
 export function reducer(state = initialState, action: BdayActions) {
@@ -67,9 +69,11 @@ export function reducer(state = initialState, action: BdayActions) {
           userName: bday['name'],
           bdays: [...state.user.bdays, bday]
         },
+        answerNew: false,
         error: ""
       }
     }
+
     case BdayActionTypes.ClearBdayData: {
       return {
         ...state,
@@ -77,7 +81,15 @@ export function reducer(state = initialState, action: BdayActions) {
           userName: '',
           bdays: []
         },
+        answerNew: false,
         currentQuestion: null
+      };
+    }
+
+    case BdayActionTypes.NewBdayQuestion: {
+      return {
+        ...state,
+        answerNew: action.payload,
       };
     }
 
