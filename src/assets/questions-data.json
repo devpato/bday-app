@@ -14,7 +14,7 @@
         },
         {
             "id": 2,
-            "question": "What day in were you born?",
+            "question": "What day were you born?",
             "answer": "",
             "type": "birthDay"
         },
