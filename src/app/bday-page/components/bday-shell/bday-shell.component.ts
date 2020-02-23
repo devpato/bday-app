@@ -15,6 +15,14 @@ export class BdayShellComponent implements OnInit {
   question$: Observable<Question>;
   questions$: Observable<Question[]>;
   setQuestion: Question;
+  newBdayAnswer$: Observable<boolean>;
+
+  newBdayQuestion = {
+    "id": 0,
+    "question": "Want to add a new bday?",
+    "answer": "",
+    "type": "newBday"
+  }
 
 
   constructor(private store: Store<fromProduct.State>, private bdayService: BdayService) { }
@@ -23,6 +31,7 @@ export class BdayShellComponent implements OnInit {
     this.store.dispatch(new bdayActions.LoadQuestions);
     this.questions$ = this.store.pipe(select(fromProduct.getQuestions));
     this.question$ = this.store.pipe(select(fromProduct.getCurrentQuestion));
+    this.newBdayAnswer$ = this.store.pipe(select(fromProduct.getAnswerNewBdayQuestion));
   }
 
   setCurrentQuestion(question: Question): void {
@@ -34,7 +43,15 @@ export class BdayShellComponent implements OnInit {
   }
 
   addNewBday(): void {
-    this.store.dispatch(new bdayActions.ResetNewBday())
+    this.store.dispatch(new bdayActions.SetCurrentQuestion(this.newBdayQuestion));
+  }
+
+  addNewBdayAnswer(flag: boolean): void {
+    if (flag) {
+      this.store.dispatch(new bdayActions.ResetNewBday())
+    } else {
+      this.onDone();
+    }
   }
 
   onDone(): void {
