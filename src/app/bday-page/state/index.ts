@@ -21,3 +21,10 @@ export const getCurrentQuestion = createSelector(
     return state.currentQuestion
   }
 );
+
+export const getAnswerNewBdayQuestion = createSelector(
+  getBdayFeatureState,
+  state => {
+    return state.answerNew
+  }
+);
