@@ -89,14 +89,6 @@ export function reducer(state = initialState, action: BdayActions) {
       };
     }
 
-    case BdayActionTypes.NewBdayQuestion: {
-      return {
-        ...state,
-        answerNew: action.payload,
-      };
-    }
-
-
     case BdayActionTypes.ToggleResults: {
       return {
         ...state,

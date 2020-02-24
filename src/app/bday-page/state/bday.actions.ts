@@ -12,7 +12,6 @@ export enum BdayActionTypes {
   ResetNewBday = '[Bday] Reset form for new bday',
   DoneForm = '[Bday] Clear entire form',
   DoneClearData = '[Bday] Clear entire data',
-  NewBdayQuestion = '[Bday] Ask if user wants to add a new bday',
   SubmitForm = '[Bday] Submit data to results',
   ToggleResults = '[Bday] Toggle results'
 }
@@ -74,11 +73,6 @@ export class ToggleResults implements Action {
   readonly type = BdayActionTypes.ToggleResults;
 }
 
-export class NewBdayQuestion implements Action {
-  readonly type = BdayActionTypes.NewBdayQuestion;
-
-  constructor(public payload: boolean) { }
-}
 
 export type BdayActions =
   | LoadQuestions
@@ -93,4 +87,3 @@ export type BdayActions =
   | DoneClearData
   | SubmitForm
   | ToggleResults
-  | NewBdayQuestion;

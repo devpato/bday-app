@@ -48,7 +48,6 @@ export class BdayEffects {
     DoneBdayForm$ = this.actions$.pipe(
         ofType(bdayActions.BdayActionTypes.DoneForm),
         mergeMap((action: bdayActions.DoneForm) => [
-            new bdayActions.AddNewBay(),
             new bdayActions.LoadQuestions(),
             new bdayActions.DoneClearData()
         ])
