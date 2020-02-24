@@ -1,4 +1,4 @@
-# Bitovi
+# Happy Birthday
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.3.
 
@@ -6,22 +6,24 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Live Server
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+https://bitovi-13f24.firebaseapp.com/
 
-## Build
+## Features
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Feel free to use the Google Redux Devtools to takea  look how the state is working on this application.
 
-## Running unit tests
+**Due to the short time to develop this application they were somethings I wanted to add but I ran out of time.**
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+I added an extra feature the client requested. The client wants users to have the avility to go back to previous questions to modify answers.
 
-## Running end-to-end tests
+## Notes
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+-Validation of the form fields(check if actual month exists, lenght, valid birth day, etc). Currently the only validation is the required field.
+<br/>
+-Tests
+<br/>
+-Actual implementation of the backend to store the data using AWS (Lambdas, DynamoDB, API Getway, AIM)
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
