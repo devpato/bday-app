@@ -14,13 +14,17 @@ https://bitovi-13f24.firebaseapp.com/
 
 Feel free to use the Google Redux Devtools to takea  look how the state is working on this application.
 
-**Due to the short time to develop this application they were somethings I wanted to add but I ran out of time.**
+## Feature
 
 I added an extra feature the client requested. The client wants users to have the avility to go back to previous questions to modify answers.
 
 ## Notes
 
+**Due to the short time to develop this application they were somethings I wanted to add but I ran out of time.**
+
 -Validation of the form fields(check if actual month exists, lenght, valid birth day, etc). Currently the only validation is the required field.
+<br/>
+-Resutls Page
 <br/>
 -Tests
 <br/>
