@@ -12,7 +12,7 @@ export interface BdayState {
 
 const initialState: BdayState = {
   user: {
-    userName: '',
+    userName: 'CURRENT_USER',
     bdays: []
   },
   questions: [],
@@ -66,7 +66,6 @@ export function reducer(state = initialState, action: BdayActions) {
 
       return {
         user: {
-          userName: bday['name'],
           bdays: [...state.user.bdays, bday]
         },
         answerNew: false,

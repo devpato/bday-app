@@ -76,7 +76,7 @@ export class BdayFormComponent implements OnInit {
       this.question = changes.question.currentValue;
       this.questionForm.patchValue({ answer: this.question?.answer })
 
-      if (this.question.type === 'birthDay') {
+      if (this.question?.type === 'birthDay') {
         const month = changes.questions.currentValue[1].answer
         this.addMonthNameToDayQuestion(month);
       }
