@@ -9,12 +9,13 @@ import { User } from 'src/app/shared/models/user.model';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BdayResultsComponent {
-  @Input() results: Observable<User>;
+  @Input() results: User;
   @Output() done = new EventEmitter();
 
   constructor() { }
 
   onDone(): void {
+    console.log(this.results)
     this.done.emit();
   }
 }

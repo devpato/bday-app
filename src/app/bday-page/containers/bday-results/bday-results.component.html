@@ -1,3 +1,12 @@
-{{results | json}}
+<div class="results-container">
+    <span>
+        User Name: {{results.userName}}
+    </span>
+    <ul>
+        <li *ngFor="let bday of results.bdays">Name: {{bday.name}} - Month {{bday.birthMonth}} - Day
+            {{bday.birthDay}} - Email: {{bday.email}}</li>
+    </ul>
+</div>
 
-<button (click)="onDone()">Done</button>
+
+<button class="button button--done" (click)="onDone()">Done</button>
