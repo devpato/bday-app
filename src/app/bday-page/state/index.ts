@@ -28,3 +28,18 @@ export const getAnswerNewBdayQuestion = createSelector(
     return state.answerNew
   }
 );
+
+export const getResults = createSelector(
+  getBdayFeatureState,
+  state => {
+    return state.user
+  }
+);
+
+export const showResults = createSelector(
+  getBdayFeatureState,
+  state => {
+    return state.showResults
+  }
+);
+

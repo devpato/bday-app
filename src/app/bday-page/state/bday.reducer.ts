@@ -8,6 +8,7 @@ export interface BdayState {
   currentQuestion: Question | null;
   answerNew: boolean;
   error: string;
+  showResults: boolean;
 }
 
 const initialState: BdayState = {
@@ -19,6 +20,7 @@ const initialState: BdayState = {
   currentQuestion: null,
   answerNew: false,
   error: "",
+  showResults: false
 };
 
 export function reducer(state = initialState, action: BdayActions) {
@@ -66,6 +68,7 @@ export function reducer(state = initialState, action: BdayActions) {
 
       return {
         user: {
+          ...state.user,
           bdays: [...state.user.bdays, bday]
         },
         answerNew: false,
@@ -73,15 +76,16 @@ export function reducer(state = initialState, action: BdayActions) {
       }
     }
 
-    case BdayActionTypes.ClearBdayData: {
+    case BdayActionTypes.DoneClearData: {
       return {
         ...state,
         user: {
-          userName: '',
+          userName: 'CURRENT_USER',
           bdays: []
         },
         answerNew: false,
-        currentQuestion: null
+        currentQuestion: null,
+        showResults: false
       };
     }
 
@@ -89,6 +93,14 @@ export function reducer(state = initialState, action: BdayActions) {
       return {
         ...state,
         answerNew: action.payload,
+      };
+    }
+
+
+    case BdayActionTypes.ToggleResults: {
+      return {
+        ...state,
+        showResults: true,
       };
     }
 

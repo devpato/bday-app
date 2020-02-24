@@ -36,12 +36,21 @@ export class BdayEffects {
     );
 
     @Effect()
-    clearBdayForm$ = this.actions$.pipe(
-        ofType(bdayActions.BdayActionTypes.ClearBdayFrom),
-        mergeMap((action: bdayActions.ClearBdayFrom) => [
+    submitBdayForm$ = this.actions$.pipe(
+        ofType(bdayActions.BdayActionTypes.SubmitForm),
+        mergeMap((action: bdayActions.SubmitForm) => [
+            new bdayActions.AddNewBay(),
+            new bdayActions.ToggleResults()
+        ])
+    );
+
+    @Effect()
+    DoneBdayForm$ = this.actions$.pipe(
+        ofType(bdayActions.BdayActionTypes.DoneForm),
+        mergeMap((action: bdayActions.DoneForm) => [
             new bdayActions.AddNewBay(),
             new bdayActions.LoadQuestions(),
-            new bdayActions.ClearBdayData()
+            new bdayActions.DoneClearData()
         ])
     );
 }

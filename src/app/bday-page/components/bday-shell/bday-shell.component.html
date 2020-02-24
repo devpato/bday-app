@@ -1,6 +1,12 @@
 <div class="bday-shell-container">
-    <app-bday-form [question]="question$ | async" [questions]="questions$ | async"
-        (setQuestion)="setCurrentQuestion($event)" (savedQuestion)="saveQuestion($event)" (addNewBday)="addNewBday()"
-        (newBdayQuestion)="addNewBdayAnswer($event)" (done)="onDone()">
-    </app-bday-form>
+    <ng-container *ngIf="showResults$ | async; else formComponent">
+        <app-bday-results (done)="onDone()" [results]="results$ | async"></app-bday-results>
+    </ng-container>
+    <ng-template #formComponent>
+        <app-bday-form [question]="question$ | async" [questions]="questions$ | async"
+            (setQuestion)="setCurrentQuestion($event)" (savedQuestion)="saveQuestion($event)"
+            (addNewBday)="addNewBday()" (newBdayQuestion)="addNewBdayAnswer($event)" (submit)="onSubmit()">
+        </app-bday-form>
+
+    </ng-template>
 </div>

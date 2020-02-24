@@ -9,6 +9,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from "@angular/common/http";
 import { EffectsModule } from "@ngrx/effects";
 import { BdayEffects } from './state/bday.effect';
+import { BdayResultsComponent } from './containers/bday-results/bday-results.component';
+
+
 
 const bdayRoutes: Routes = [{ path: "", component: BdayShellComponent }];
 
@@ -24,6 +27,8 @@ const bdayRoutes: Routes = [{ path: "", component: BdayShellComponent }];
   ],
   declarations: [
     BdayShellComponent,
-    BdayFormComponent],
+    BdayFormComponent,
+    BdayResultsComponent,
+  ],
 })
 export class BdayModule { }

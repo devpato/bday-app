@@ -22,7 +22,7 @@ export class BdayFormComponent implements OnInit {
   @Output() savedQuestion = new EventEmitter<Question>();
   @Output() addNewBday = new EventEmitter();
   @Output() newBdayQuestion = new EventEmitter<boolean>();
-  @Output() done = new EventEmitter();
+  @Output() submit = new EventEmitter();
 
   newID: number
   questionForm: FormGroup;
@@ -66,9 +66,9 @@ export class BdayFormComponent implements OnInit {
     this.newBdayQuestion.emit(flag);
   }
 
-  onDone(): void {
+  onSubmit(): void {
     this.saveAnswer();
-    this.done.emit();
+    this.submit.emit();
   }
 
   ngOnChanges(changes: SimpleChanges): void {

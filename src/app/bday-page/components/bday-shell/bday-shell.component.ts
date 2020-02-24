@@ -5,6 +5,7 @@ import { Store, select } from "@ngrx/store";
 import * as fromProduct from "../../state";
 import * as bdayActions from "../../state/bday.actions";
 import { BdayService } from '../../bday.service';
+import { User } from 'src/app/shared/models/user.model';
 
 @Component({
   selector: 'app-bday-shell',
@@ -16,6 +17,8 @@ export class BdayShellComponent implements OnInit {
   questions$: Observable<Question[]>;
   setQuestion: Question;
   newBdayAnswer$: Observable<boolean>;
+  results$: Observable<User>
+  showResults$: Observable<boolean>;
 
   newBdayQuestion = {
     "id": 0,
@@ -32,6 +35,8 @@ export class BdayShellComponent implements OnInit {
     this.questions$ = this.store.pipe(select(fromProduct.getQuestions));
     this.question$ = this.store.pipe(select(fromProduct.getCurrentQuestion));
     this.newBdayAnswer$ = this.store.pipe(select(fromProduct.getAnswerNewBdayQuestion));
+    this.results$ = this.store.pipe(select(fromProduct.getResults));
+    this.showResults$ = this.store.pipe(select(fromProduct.showResults));
   }
 
   setCurrentQuestion(question: Question): void {
@@ -48,13 +53,17 @@ export class BdayShellComponent implements OnInit {
 
   addNewBdayAnswer(flag: boolean): void {
     if (flag) {
-      this.store.dispatch(new bdayActions.ResetNewBday())
+      this.store.dispatch(new bdayActions.ResetNewBday());
     } else {
-      this.onDone();
+      this.onSubmit();
     }
   }
 
+  onSubmit(): void {
+    this.store.dispatch(new bdayActions.SubmitForm());
+  }
+
   onDone(): void {
-    this.store.dispatch(new bdayActions.ClearBdayFrom())
+    this.store.dispatch(new bdayActions.DoneForm());
   }
 }
