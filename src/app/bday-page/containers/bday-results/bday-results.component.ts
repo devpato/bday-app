@@ -15,7 +15,6 @@ export class BdayResultsComponent {
   constructor() { }
 
   onDone(): void {
-    console.log(this.results)
     this.done.emit();
   }
 }
