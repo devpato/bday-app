@@ -24,7 +24,7 @@ I added an extra feature the client requested. The client wants users to have th
 
 -Validation of the form fields(check if actual month exists, lenght, valid birth day, etc). Currently the only validation is the required field.
 <br/>
--Resutls Page
+-Results Page
 <br/>
 -Tests
 <br/>
